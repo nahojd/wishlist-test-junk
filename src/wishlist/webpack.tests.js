@@ -5,14 +5,14 @@ module.exports = {
 		filename: './tests.js'
 	},
 	resolve: {
-		extensions: ['', '.ts', '.js']
+		extensions: ['', '.ts', '.tsx', '.js']
 	},
 	plugins: [
 	
 	],
 	module: {
 		loaders: [
-			{ test: /\.ts$/, loader: 'ts-loader' }
+			{ test: /\.tsx?$/, loader: 'ts-loader' }
 		]
 	}
 }

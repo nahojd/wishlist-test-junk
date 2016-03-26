@@ -4,7 +4,7 @@
   "description": "A wish list application",
   "main": "Scripts/app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp build-scripts"
   },
   "author": "Johan Driessen",
   "license": "ISC",
@@ -20,12 +20,17 @@
     "gulp-shell": "^0.5.2",
     "gulp-sourcemaps": "^1.6.0",
     "jasmine": "^2.4.1",
+    "ts-loader": "^0.8.1",
     "typescript": "^1.8.9",
     "webpack": "^1.12.14",
     "webpack-stream": "^3.1.0"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",
-    "ts-loader": "^0.8.1"
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.4.1",
+    "redux": "^3.3.1",
+    "redux-thunk": "^2.0.1"
   }
 }

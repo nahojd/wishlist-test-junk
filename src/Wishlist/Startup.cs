@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
+using Microsoft.AspNet.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -26,7 +27,7 @@ namespace WebAPIApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
+			services.AddAuthorization();
             services.AddMvc();
         }
 
@@ -38,9 +39,21 @@ namespace WebAPIApplication
 
             app.UseIISPlatformHandler();
 
-            app.UseStaticFiles();
-
+			app.UseCookieAuthentication(options => 
+			{
+				options.AuthenticationScheme = "Cookie";
+				options.LoginPath = new PathString("/account/login");
+				options.LogoutPath = new PathString("/account/logout");
+				options.AccessDeniedPath = new PathString("/account/login");
+				options.AutomaticAuthenticate = true;
+				options.AutomaticChallenge = true;
+			});
+			
+			app.UseStaticFiles();
+			
             app.UseMvc();
+			
+			
         }
 
         // Entry point for the application.

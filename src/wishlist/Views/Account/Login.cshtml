@@ -1,0 +1,19 @@
+<h1>Logga in</h1>
+
+<form method="post">
+	<input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+	
+	<fieldset class="form-group">
+		<label for="username">Användarnamn</label>
+		<input type="text" class="form-control" name="username" placeholder="Ange ditt användarnamn" />
+	</fieldset>
+	
+	<fieldset class="form-group">
+		<label for="password">Lösenord</label>
+		<input type="password" class="form-control" name="password" />
+	</fieldset>
+	
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Logga in</button>
+	</div>
+</form>

@@ -1,7 +1,9 @@
 {
 	"compilerOptions": {
 		"module": "commonjs",
-		"sourceMap": true
+		"jsx": "react",
+		"sourceMap": true,
+		"target": "es5"
 	},
 	"files": [
 		"typings/main.d.ts",	
