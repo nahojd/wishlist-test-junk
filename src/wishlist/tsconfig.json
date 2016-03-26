@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"sourceMap": true
+	},
+	"files": [
+		"typings/main.d.ts",	
+		"Scripts/app.ts",
+		"Scripts/app-tests.ts"
+	]
+}

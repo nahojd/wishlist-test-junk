@@ -15,9 +15,11 @@
     "gulp": "git://github.com/gulpjs/gulp.git#66c4864",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean-css": "^2.0.4",
-    "gulp-less": "^3.0.5",
+    "gulp-jasmine": "^2.3.0",
     "gulp-sass": "^2.2.0",
+    "gulp-shell": "^0.5.2",
     "gulp-sourcemaps": "^1.6.0",
+    "jasmine": "^2.4.1",
     "typescript": "^1.8.9",
     "webpack": "^1.12.14",
     "webpack-stream": "^3.1.0"

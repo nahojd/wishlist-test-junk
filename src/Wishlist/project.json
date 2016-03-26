@@ -4,7 +4,7 @@
     "emitEntryPoint": true
   },
   "tooling": {
-    "defaultNamespace": "WebAPIApplication"
+    "defaultNamespace": "Wishlist"
   },
 
   "dependencies": {
@@ -29,8 +29,7 @@
 
   "exclude": [
     "wwwroot",
-    "node_modules",
-    "bower_components"
+    "node_modules"
   ],
   "publishExclude": [
     "**.user",

@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "module": "commonjs",
-    "sourceMap": true
-  },
-  "files": [
-    "Scripts/app.ts"
-  ]
-}

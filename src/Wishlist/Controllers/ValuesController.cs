@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 
-namespace WebAPIApplication.Controllers
+namespace Wishlist.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
@@ -13,7 +13,7 @@ namespace WebAPIApplication.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "value1", "value2", "value3" };
         }
 
         // GET api/values/5
