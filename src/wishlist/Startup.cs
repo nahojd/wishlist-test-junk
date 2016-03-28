@@ -8,6 +8,7 @@ using Microsoft.AspNet.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Wishlist.Model;
 
 namespace WebAPIApplication
 {
@@ -29,6 +30,10 @@ namespace WebAPIApplication
         {
 			services.AddAuthorization();
             services.AddMvc();
+            
+            //Add my own services
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddInstance<IDbConnectionFactory>(new PostgresConnectionFactory());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,21 +4,33 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Http.Authentication;
 using Microsoft.AspNet.Mvc;
+using Wishlist.Model;
 
 [Route("account")]
 public class AccountController : Controller
 {
-	[HttpGet]
-	[Route("login")]
+    private readonly IUserRepository repository;
+    
+    public AccountController(IUserRepository repository) {
+        this.repository = repository;
+    }
+    
+	[HttpGet("login")]
 	public ActionResult Login(string returnUrl = null) {
 		ViewBag.ReturnUrl = returnUrl;
 		return View();
 	}
 	
-	[HttpPost]
-	[Route("login")]
+	[HttpPost("login")]
 	public async Task<ActionResult> Login(string username, string password, string returnUrl = null) {
-		const string Issuer = "https://wishlist.local";
+		
+        if (!repository.AuthenticateUser(username, password)) {
+            ViewBag.ReturnUrl = returnUrl;
+            ViewBag.Error = "Felaktigt användarnamn eller lösenord, var god försök igen.";
+            return View();
+        }
+        
+        const string Issuer = "https://wishlist.local";
 		var claims = new List<Claim>();
 		claims.Add(new Claim(ClaimTypes.Name, username, ClaimValueTypes.String, Issuer));
 		var userIdentity = new ClaimsIdentity("SuperSecureLogin");
@@ -38,4 +50,11 @@ public class AccountController : Controller
 		
 		return RedirectToAction("Index", "Home");
 	}
+    
+    [HttpGet("logout")]
+    public async Task<ActionResult> Logout() {
+        await HttpContext.Authentication.SignOutAsync("Cookie", null);
+        
+        return RedirectToAction("Login");
+    }
 }

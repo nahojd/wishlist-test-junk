@@ -1,5 +1,12 @@
 <h1>Logga in</h1>
 
+@if (ViewBag.Error != null) {
+	<div class="alert alert-danger" role="alert">
+		<strong>Fel</strong> @ViewBag.Error
+	</div>
+}
+
+
 <form method="post">
 	<input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
 	
