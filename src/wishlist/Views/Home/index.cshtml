@@ -1,1 +1,7 @@
+@using Newtonsoft.Json
+@model Wishlist.Controllers.AppState
 <div id="WishlistContainer"></div>
+
+<script>
+	window.initialState = @Html.Raw(JsonConvert.SerializeObject(Model, new JsonSerializerSettings { ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver() }));
+</script>
